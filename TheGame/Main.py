@@ -2,6 +2,7 @@
 # Adapt from this template
 
 # Import and initialize the pygame library
+#Test
 import pygame
 pygame.init()
 
