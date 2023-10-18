@@ -26,6 +26,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    y = 50
+    isJump = False
+    jumpCount = 10
     # Handle user input
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and sprite_x > 0:
@@ -36,6 +39,15 @@ while running:
         sprite_y -= SPRITE_SPEED
     if keys[pygame.K_DOWN] and sprite_y < HEIGHT - SPRITE_SIZE:
         sprite_y += SPRITE_SPEED
+    if keys[pygame.K_SPACE]:
+            isJump = True
+    else:
+        if jumpCount >= -10:
+            y -= (jumpCount * abs(jumpCount)) * 0.5
+            jumpCount -= 1
+        else: 
+            jumpCount = 10
+            isJump = False
 
     # Clear the screen
     window.fill(BACKGROUND_COLOR)
