@@ -9,7 +9,7 @@ WIDTH, HEIGHT = 700, 700
 BACKGROUND_COLOR = (255, 255, 255)
 SPRITE_COLOR = (0, 0, 0)
 SPRITE_SIZE = 50
-SPRITE_SPEED = 3
+SPRITE_SPEED = 1
 
 # Create the game window
 window = pygame.display.set_mode((WIDTH, HEIGHT))
