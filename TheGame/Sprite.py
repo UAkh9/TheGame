@@ -11,7 +11,7 @@ SPRITE_COLOR = (0, 0, 0)
 SPRITE_SIZE = 50
 SPRITE_SPEED = 1
 
-# Create the game window
+# Creates the game window
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Moving Sprite")
 
@@ -39,25 +39,60 @@ while running:
         sprite_y -= SPRITE_SPEED
     if keys[pygame.K_DOWN] and sprite_y < HEIGHT - SPRITE_SIZE:
         sprite_y += SPRITE_SPEED
-    if keys[pygame.K_SPACE]:
-            isJump = True
-    else:
-        if jumpCount >= -10:
-            y -= (jumpCount * abs(jumpCount)) * 0.5
-            jumpCount -= 1
-        else: 
-            jumpCount = 10
-            isJump = False
+    #if keys[pygame.K_SPACE]:
+       # sprite_x
+    isjump = False
+   
+# Force (v) up and mass m. 
+    v = 5
+    m = 1
+    if isjump == False: 
+   
+        # if space bar is pressed 
+        if keys[pygame.K_SPACE]: 
+                  
+            # make isjump equal to True 
+            isjump = True
+               
+    if isjump : 
+        # calculate force (F). F = 1 / 2 * mass * velocity ^ 2. 
+        F =(1 / 2)*m*(v**2) 
+           
+        # change in the y co-ordinate 
+        y-= F 
+           
+        # decreasing velocity while going up and become negative while coming down 
+        v = v-1
+           
+        # object reached its maximum height 
+        if v<0: 
+               
+            # negative sign is added to counter negative velocity 
+            m =-1
+   
+        # objected reaches its original state 
+        if v ==-6: 
+   
+            # making isjump equal to false  
+            isjump = False
+  
+     
+            # setting original values to v and m 
+            v = 5
+            m = 1
+    
+     
 
-    # Clear the screen
+
+    # Clears the screen
     window.fill(BACKGROUND_COLOR)
 
-    # Draw the sprite
+    # Rectangle Sprite
     pygame.draw.rect(window, SPRITE_COLOR, (sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE))
 
-    # Update the display
+    # Updates the dislpay 
     pygame.display.update()
 
-# Quit Pygame
+# Allows user to exit
 pygame.quit()
 sys.exit()
