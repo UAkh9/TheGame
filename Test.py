@@ -15,7 +15,7 @@ GRAVITY = 1
 
 # Create the game window
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Moving and Jumping Sprite")
+pygame.display.set_caption("The Sprite")
 
 # Initial sprite position and state
 sprite_x = (WIDTH - SPRITE_SIZE) // 2
@@ -53,7 +53,6 @@ while running:
     if sprite_y < HEIGHT - SPRITE_SIZE:
         sprite_y += GRAVITY
     else:
-        # Reset jump count when the sprite touches the ground
         jump_count = JUMP_HEIGHT
 
     # Clear the screen
