@@ -19,19 +19,20 @@ Screen.fill((255,225,225))
 
 
     
-    
-run = True
-while run:
-    
+#Usman has fixed this code it should now be able to close the window when u click the X  
+running = True
+while running:
 
+    
     for event in pygame.event.get():
-        if event.type == pygame.quit:
+        if event.type == pygame.QUIT:
             running = False
+
        
                 
    
             
-    pygame.display.update()
+pygame.display.update()
 pygame.quit()
 
 
