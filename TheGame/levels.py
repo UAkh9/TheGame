@@ -45,65 +45,13 @@ score = 0
 
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.quit:
             running = False
-
-    # Handle player input
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_SPACE]:
-        player_velocity = -15  # Jump by setting a negative velocity
-
-    # Update player position
-    player_y += player_velocity
-    player_velocity += GRAVITY
-
-    # Keep the player within the screen bounds
-    if player_y >= HEIGHT - PLAYER_HEIGHT:
-        player_y = HEIGHT - PLAYER_HEIGHT
-        player_velocity = 0
-
-    # creating new  new obstacles
-    if random.randint(1, 100) < 10:
-        spawn_obstacle()
-
-    # Update obstacle positions and remove if they go off-screen
-    for obstacle in obstacles:
-        obstacle[0] -= SPEED
-
-    obstacles = [obstacle for obstacle in obstacles if obstacle[0] > -OBSTACLE_WIDTH]
-
-    #  this helps us Check for collisions
-    for obstacle in obstacles:
-        if (
-            player_x < obstacle[0] + OBSTACLE_WIDTH
-            and player_x + PLAYER_WIDTH > obstacle[0]
-            and player_y < obstacle[1] + OBSTACLE_HEIGHT
-            and player_y + PLAYER_HEIGHT > obstacle[1]
-        ):
-            running = False
-
-    # Clear the screen
-    screen.fill(BACKGROUND_COLOR)
-
-    
-
-    # Draw the obstacles
-    for obstacle in obstacles:
-        pygame.draw.rect(screen, OBSTACLE_COLOR, (obstacle[0], obstacle[1], OBSTACLE_WIDTH, OBSTACLE_HEIGHT))
-
-    # Update the display
+       
+                
+   
+            
     pygame.display.update()
-
-    # Increase the score
-    score += 1
-
-    # Set the frame rate
-    clock.tick(30)
-
-# Game over
-print("Game Over. Your Score:", score)
-
-# Quit Pygame
 pygame.quit()
 
 
