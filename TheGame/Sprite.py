@@ -9,8 +9,8 @@ WIDTH, HEIGHT = 800, 700
 BACKGROUND_COLOR = (255, 255, 255)
 SPRITE_COLOR = (0, 0, 0)
 SPRITE_SIZE = 50
-SPRITE_SPEED = 1
-JUMP_HEIGHT = 5
+SPRITE_SPEED = 0.85
+JUMP_HEIGHT = 4
 GRAVITY = 1
 
 # Create the game window
@@ -18,9 +18,9 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("The Sprite")
 
 # Initial sprite position and state
-sprite_x = (WIDTH - SPRITE_SIZE) // 2
-sprite_y = (HEIGHT - SPRITE_SIZE) // 2
-is_jumping = False
+sprite_x = (WIDTH - SPRITE_SIZE) // 9
+sprite_y = (HEIGHT - SPRITE_SIZE) // 1
+is_jumping = True
 jump_count = JUMP_HEIGHT
 
 # Game loop
@@ -38,9 +38,13 @@ while running:
         sprite_x += SPRITE_SPEED
 
     # Implement jumping mechanism
-    if not is_jumping:
-        if keys[pygame.K_SPACE]:
-            is_jumping = True
+    #if is_jumping:
+    jumping = True
+    while jumping:
+            if keys[pygame.K_SPACE]:
+                #key = keys[pygame.K_SPACE]
+                is_jumping = False
+            break
     else:
         if jump_count >= -JUMP_HEIGHT:
             sprite_y -= (jump_count ** 2) * 0.5
