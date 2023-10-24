@@ -1,3 +1,4 @@
+#Sprite
 import pygame
 import sys
 
