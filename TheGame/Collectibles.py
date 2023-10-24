@@ -1,23 +1,34 @@
 import pygame
 
-WIN = pygame.display.set_mode ((800, 600))
 WIDTH = 800
 HEIGHT = 600
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
+def draw_window():
+    WHITE = (255, 255, 255)
+    coin_image = pygame.image.load('assets/coin.jpg')
+    coinx = 10
+    coiny = 10
+    WIN.blit(coin_image,(coinx,coiny))
+    
 
 running = True
 while running:
+
+    draw_window()
+
+    # Did the user click the window close button?
     for event in pygame.event.get():
-        if event.type == pygame.quit:
+        if event.type == pygame.QUIT:
             running = False
-
-coin_image = pygame.image.load('Coin.jpg')
-coinx = 370
-coiny = 480          
-
-def draw_window():
-    WIN.blit(coin_image,(300,100))
+    
     pygame.display.update()
+
+
+
+        
+
+
 
 pygame.quit()
 
