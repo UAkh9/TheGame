@@ -15,12 +15,12 @@ JUMP_HEIGHT = 6
 GRAVITY = 1
 
 # Create the game window
-window = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("The Sprite")
 
 # Initial sprite position and state
 sprite_x = (WIDTH - SPRITE_SIZE) // 9
-sprite_y = (HEIGHT - SPRITE_SIZE) // 1
+sprite_y = (HEIGHT - SPRITE_SIZE) // 5
 is_jumping = False
 jump_count = 0  
 max_jump_count = 7  
@@ -62,10 +62,10 @@ while running:
         sprite_y += GRAVITY
     
     # Clear the screen
-    window.fill(BACKGROUND_COLOR)
+    screen.fill(BACKGROUND_COLOR)
 
     # Draw the sprite
-    pygame.draw.rect(window, SPRITE_COLOR, (sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE))
+    pygame.draw.rect(screen, SPRITE_COLOR, (sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE))
 
     # Update the display
     pygame.display.update()
