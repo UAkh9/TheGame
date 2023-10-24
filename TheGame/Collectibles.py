@@ -11,8 +11,6 @@ while running:
         if event.type == pygame.quit:
             running = False
 
-pygame.quit()
-
 coin_image = pygame.image.load('Coin.jpg')
 coinx = 370
 coiny = 480          
@@ -20,6 +18,10 @@ coiny = 480
 def draw_window():
     WIN.blit(coin_image,(300,100))
     pygame.display.update()
+
+pygame.quit()
+
+
 
 
 
