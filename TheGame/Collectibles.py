@@ -1,12 +1,12 @@
 import pygame
 
 WIDTH = 800
-HEIGHT = 600
+HEIGHT = 700
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 def draw_window():
     WHITE = (255, 255, 255)
-    coin_image = pygame.image.load('assets/coin.jpg')
+    coin_image = pygame.image.load('assets/coin.png')
     coinx = 10
     coiny = 10
     WIN.blit(coin_image,(coinx,coiny))
