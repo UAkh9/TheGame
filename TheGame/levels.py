@@ -14,7 +14,7 @@ BACKGROUND_COLOR = (200, 220, 50)
 SPEED = 5
 GRAVITY = 1
 
-greenbackground_img =pygame.image.load("assets/greengrass.jpg")
+greenbackground_img = pygame.image.load("assets/greengrass.jpg")
 
 # Create the window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
