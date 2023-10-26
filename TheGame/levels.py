@@ -1,5 +1,5 @@
 import pygame
-import random
+import sys 
 
 # Initialize Pygame
 pygame.init()
@@ -13,6 +13,8 @@ OBSTACLE_COLOR = (0, 80, 220)
 BACKGROUND_COLOR = (200, 220, 50)
 SPEED = 5
 GRAVITY = 1
+
+greenbackground_img =pygame.image.load("assets/greengrass.jpg")
 
 # Create the window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -41,6 +43,7 @@ running = True
 score = 0
 
 while running:
+    screen.blit(greenbackground_img.jpg_img,(0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -102,6 +105,7 @@ print("Game Over. Your Score:", score)
 
 # Quit Pygame
 pygame.quit()
+sys.quit()
 
 
 

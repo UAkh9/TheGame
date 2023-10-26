@@ -1,16 +1,41 @@
 import pygame
-#Collect the collectibles if the player touches it
-Player_touched_collectible = Player_rectangle.colliderect(collectible)
 
-#Draw the collectibles 
-Collectibles_color = pygame.color(255, 0, 0)
-Collectibles_size_in_pixels = 20
-collectible_rectangle = pygame.rect (
-    collectibles_x,
-    collectible_y,
-    collectible_size_in_pixels,
-    collectible_size_in_pixels)
-pygame.draw.rect (
-    screen,
-    Collectible_color,
-    collectible_rect)
+WIDTH = 800
+HEIGHT = 700
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+
+def draw_window():
+    WHITE = (255, 255, 255)
+    coin_image = pygame.image.load('assets/coin.png')
+    coinx = 10
+    coiny = 10
+    WIN.blit(coin_image,(coinx,coiny))
+    
+
+running = True
+while running:
+
+    draw_window()
+
+    # Did the user click the window close button?
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    pygame.display.update()
+
+
+
+        
+
+
+
+pygame.quit()
+
+
+
+
+
+
+
+
