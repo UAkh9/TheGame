@@ -11,7 +11,7 @@ BACKGROUND_COLOR = (255, 255, 255)
 SPRITE_COLOR = (0, 0, 0)
 SPRITE_SIZE = 50
 SPRITE_SPEED = 0.95
-JUMP_HEIGHT = 6
+JUMP_HEIGHT = 4
 GRAVITY = 1
 
 # Create the game window
@@ -23,7 +23,7 @@ sprite_x = (WIDTH - SPRITE_SIZE) // 9
 sprite_y = (HEIGHT - SPRITE_SIZE) // 5
 is_jumping = False
 jump_count = 0  
-max_jump_count = 7  
+max_jump_count = 7 
 sprite_y = 0  
 space_pressed = False
 
@@ -44,7 +44,7 @@ while running:
     # New Jumping Mechanism which should only allow user to jump and not continuously float
     if is_jumping:
         if jump_count >= -max_jump_count:
-            sprite_y -= (jump_count ** 2) * 0.5
+            sprite_y -= (jump_count ** 2) * 1
             jump_count -= 1
         else:
             is_jumping = False

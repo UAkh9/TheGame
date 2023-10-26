@@ -4,10 +4,11 @@
 # Import and initialize the pygame library
 #Test by Angelo
 import pygame
+import sys 
 pygame.init()
 
 # Set up the drawing window
-screen = pygame.display.set_mode([500, 500])
+screen = pygame.display.set_mode([900, 800])
 
 # Run until the user asks to quit
 running = True
@@ -29,3 +30,4 @@ while running:
 
 # Done! Time to quit.
 pygame.quit()
+sys.exit()
