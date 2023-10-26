@@ -1,21 +1,32 @@
 import pygame
 import sys
 
+
+
+# Initialize Pygame
 pygame.init()
-CLOCK = pygame.time.Clock()
-SCREEN = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Image test")
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
+cloudbackground_img = pygame.image.load("assets/cloudbackground.png")
+
+
 
 running = True
 while running:
 
+    screen.blit(cloudbackground_img,(0, 0))
+    # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
+    pygame.display.update()
 
-BACKGROUND = pygame.image.load("assets/cluodbackground.png")
-SCREEN.blit(BACKGROUND, (0, 0))
 
-pygame.display.update()
-CLOCK.tick(60)
+
+
+# Quit the game
+pygame.quit()
+sys.exit()
+
