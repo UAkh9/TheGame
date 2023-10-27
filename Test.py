@@ -8,14 +8,14 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-cloudbackground_img = pygame.image.load("assets/cloudbackground.png")
+bg_img = pygame.image.load("assets/Sky_Background.png")
 
 
 
 running = True
 while running:
 
-    screen.blit(cloudbackground_img,(0, 0))
+    screen.blit(bg_img,(0, 0))
     # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
