@@ -8,8 +8,8 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-bg_img = pygame.image.load("/assets/Sky_Background.png")
-greenbackground_img = pygame.image.load("/assets/greengrass.jpg")
+bg_img = pygame.image.load("assets/Sky_Background.png")
+greenbackground_img = pygame.image.load("assets/greengrass.jpg")
 
 
 
