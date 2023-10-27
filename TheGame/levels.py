@@ -10,10 +10,10 @@ PLAYER_WIDTH, PLAYER_HEIGHT = 50, 50
 OBSTACLE_WIDTH, OBSTACLE_HEIGHT = 50, 50
 
 OBSTACLE_COLOR = (0, 80, 220)
-BACKGROUND_COLOR = (200, 220, 50)
 SPEED = 5
 GRAVITY = 1
 
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 greenbackground_img = pygame.image.load("assets/greengrass.jpg")
 
 # Create the window
@@ -43,7 +43,7 @@ running = True
 score = 0
 
 while running:
-    screen.blit(greenbackground_img.jpg_img,(0, 0))
+    screen.blit(greenbackground_img,(0, 530))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -63,8 +63,9 @@ while running:
         player_velocity = 0
 
     # this helps when it comes to creating  new obstacles
-    if random.randint(1, 100) < 10:
-        spawn_obstacle()
+    def random ():
+        if random.randint(1, 100) < 10:
+            spawn_obstacle()
 
     #  this helps Update obstacle positions and removes them when the player overcomes them
     for obstacle in obstacles:
@@ -83,7 +84,6 @@ while running:
             running = False
 
     # Clear the screen
-    screen.fill(BACKGROUND_COLOR)
 
     
 
@@ -105,7 +105,7 @@ print("Game Over. Your Score:", score)
 
 # Quit Pygame
 pygame.quit()
-sys.quit()
+sys.exit()
 
 
 
