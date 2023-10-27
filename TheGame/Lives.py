@@ -1,3 +1,5 @@
+import pygame
+
 #Player class 
 class Player:
 
