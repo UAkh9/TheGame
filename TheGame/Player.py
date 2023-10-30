@@ -42,7 +42,7 @@ while running:
             running = False
 
     # Fill the screen with black
-    screen.fill((0, 0, 0))
+    screen.fill((20, 20, 90))
 
     # Draw the player on the screen
     screen.blit(player.surf, (SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
