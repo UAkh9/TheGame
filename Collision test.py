@@ -34,8 +34,8 @@ is_jumping = False
 jump_count = 0  
 max_jump_count = 7 
 space_pressed = False
-bg_img = pygame.image.load("//STU01FS/HOMES/22331902\Downloads\TheGame-master/assets/Sky_Background.png")
-greenbackground_img = pygame.image.load("//STU01FS/HOMES/22331902/Downloads/TheGame-master/assets/greengrass.jpg")
+bg_img = pygame.image.load("//assets/Sky_Background.png")
+greenbackground_img = pygame.image.load("//assets/greengrass.jpg")
 
 ground = Rectangle(0, 330, 40, 70)
 plat1 = Rectangle(200, 330, 40, 70)
