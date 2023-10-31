@@ -53,26 +53,6 @@ class Collect():
         Hearty = 50
         WIN.blit(Heart,(Heartx,Hearty))
 
-    running = True
-    while running:
-
-        draw_window()
-
-        # Did the user click the window close button?
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-        
-        pygame.display.update()
-
-
-
-        
-
-
-
-pygame.quit()
-
 
 
 
