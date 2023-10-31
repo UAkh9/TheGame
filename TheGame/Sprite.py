@@ -10,9 +10,9 @@ WIDTH, HEIGHT = 800, 700
 BACKGROUND_COLOR = (255, 255, 255)
 SPRITE_COLOR = (0, 0, 0)
 SPRITE_SIZE = 50
-SPRITE_SPEED = 0.95
+SPRITE_SPEED = 2
 JUMP_HEIGHT = 4
-GRAVITY = 1
+GRAVITY = 2
 
 # Create the game window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
