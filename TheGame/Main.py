@@ -2,7 +2,7 @@
 
 import pygame
 import sys 
-
+from Collectibles import Collect
 
 pygame.init()
 
