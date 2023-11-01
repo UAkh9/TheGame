@@ -1,8 +1,18 @@
-# Simple pygame program - taken from https://realpython.com/pygame-a-primer/
-
 import pygame
-import sys 
-from Collectibles import Collect
+import sys
+
+class Rectangle:
+    def __init__(self, x, y, width, height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def is_colliding(self, other):
+        return (self.x < other.x + other.width and
+                self.x + self.width > other.x and
+                self.y < other.y + other.height and
+                self.y + self.height > other.y)
 
 pygame.init()
 
@@ -23,17 +33,18 @@ sprite_y = (HEIGHT - SPRITE_SIZE) // 5
 is_jumping = False
 jump_count = 0  
 max_jump_count = 7 
-sprite_y = 0  
 space_pressed = False
-bg_img = pygame.image.load("assets/Sky_Background.png")
-greenbackground_img = pygame.image.load("assets/greengrass.jpg")
+bg_img = pygame.image.load("//assets/Sky_Background.png")
+greenbackground_img = pygame.image.load("//assets/greengrass.jpg")
+
+ground = Rectangle(0, 330, 40, 70)
+plat1 = Rectangle(200, 330, 40, 70)
 
 # Game loop
 running = True
 while running:
-    screen.blit(bg_img,(0, 0))
-    screen.blit(greenbackground_img,(0, 530))
-    
+    screen.blit(bg_img, (0, 0))
+    screen.blit(greenbackground_img, (0, 530))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -61,22 +72,33 @@ while running:
         elif not keys[pygame.K_SPACE]:
             space_pressed = False
 
-    # Apply gravity
+    # Apply gravity and check for ground collision
     if sprite_y < HEIGHT - SPRITE_SIZE:
         sprite_y += GRAVITY
-    
-    # Clear the screen
-    
+    elif sprite_y > HEIGHT - SPRITE_SIZE:
+        sprite_y = HEIGHT - SPRITE_SIZE
 
+    if ground.is_colliding(Rectangle(sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE)):
+        sprite_y = ground.y - SPRITE_SIZE
+    
+    if plat1.is_colliding(Rectangle(sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE)):
+        sprite_y = ground.y - SPRITE_SIZE
 
-    # Draw the sprite
+    # Check for collision
+    if ground.is_colliding(Rectangle(sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE)):
+        is_jumping = False
+        jump_count = 0
+    
+    if plat1.is_colliding(Rectangle(sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE)):
+        is_jumping = False
+        jump_count = 0
+
+    # Draw the sprite and ground
     pygame.draw.rect(screen, SPRITE_COLOR, (sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE))
-    Collect.draw_window()
-
-
+    pygame.draw.rect(screen, (203, 100, 105), (ground.x, ground.y, ground.width, ground.height))
+    pygame.draw.rect(screen, (203, 100, 105), (plat1.x, plat1.y, plat1.width, plat1.height))
 
     pygame.display.update()
-
 
 # Done! Time to quit.
 pygame.quit()
