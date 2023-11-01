@@ -73,7 +73,7 @@ while running:
     pygame.draw.rect(screen, SPRITE_COLOR, (sprite_x, sprite_y, SPRITE_SIZE, SPRITE_SIZE))
     Collect.draw_window()
 
-
+    
 
     pygame.display.update()
 
