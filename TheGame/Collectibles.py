@@ -7,7 +7,7 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 class Collect():
 
     def draw_window():
-        WHITE = (255, 255, 255)
+        
         # coin import/Coin size /coin postion as X & 
         coin_image = pygame.image.load('assets/coin.png')
         coin = pygame.transform.scale(coin_image,(50,60))
