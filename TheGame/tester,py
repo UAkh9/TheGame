@@ -1,0 +1,89 @@
+import pygame
+import random
+
+# Initialize Pygame
+pygame.init()
+
+# Constants
+WIDTH, HEIGHT = 800, 600
+PLAYER_SIZE = 50
+PLAYER_SPEED = 5
+OBSTACLE_SIZE = 50
+OBSTACLE_SPEED = 5
+
+# Colors
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
+# Create the screen
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Obstacle Game")
+
+# Player
+player = pygame.Rect(WIDTH // 2 - PLAYER_SIZE // 2, HEIGHT - 2 * PLAYER_SIZE, PLAYER_SIZE, PLAYER_SIZE)
+
+# Obstacles
+obstacles = []
+
+# Clock for controlling game speed
+clock = pygame.time.Clock()
+
+score = 0
+
+# Game loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Move the player
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and player.left > 0:
+        player.x -= PLAYER_SPEED
+    if keys[pygame.K_RIGHT] and player.right < WIDTH:
+        player.x += PLAYER_SPEED
+
+    # Create new obstacles
+    if len(obstacles) < 5:
+        obstacle = pygame.Rect(random.randint(0, WIDTH - OBSTACLE_SIZE), 0, OBSTACLE_SIZE, OBSTACLE_SIZE)
+        obstacles.append(obstacle)
+
+    # Move obstacles
+    for obstacle in obstacles:
+        obstacle.y += OBSTACLE_SPEED
+
+    # Remove obstacles that are out of the screen
+    obstacles = [obstacle for obstacle in obstacles if obstacle.y < HEIGHT]
+
+    # Check for collisions
+    for obstacle in obstacles:
+        if player.colliderect(obstacle):
+            running = False
+
+    # Clear the screen
+    screen.fill(WHITE)
+
+    # Draw player
+    pygame.draw.rect(screen, RED, player)
+
+    # Draw obstacles
+    for obstacle in obstacles:
+        pygame.draw.rect(screen, RED, obstacle)
+
+    # Display the score
+    font = pygame.font.Font(None, 36)
+    score_text = font.render(f"Score: {score}", True, RED)
+    screen.blit(score_text, (10, 10))
+
+    # Update the display
+    pygame.display.flip()
+
+    # Increase the score
+    score += 1
+
+    # Control the game speed
+    clock.tick(30)
+
+# Game over
+pygame.quit()
